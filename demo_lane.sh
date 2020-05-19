@@ -1,4 +1,4 @@
-python2 -u demo.py CULane ERFNet train test_img \
+python2 -u light_condiction_style_transfer.py CULane ERFNet \
                    --gpus 0 \
                    --resume trained/_erfnet_model_best.pth.tar \
                    --img_height 208 \

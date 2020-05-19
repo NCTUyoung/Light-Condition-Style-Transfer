@@ -1,0 +1,17 @@
+dataset: bdd100k
+train_split: train
+val_split: val
+img_rows: 576
+img_cols: 1024
+resume: 'trained/_erfnet_model_best.pth.tar'
+publish_rate: 5
+gpus: [0]
+evaluate: True
+image_src: /image_raw
+
+
+
+
+
+
+    

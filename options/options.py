@@ -1,10 +1,10 @@
 import argparse
 parser = argparse.ArgumentParser(description="PyTorch implementation of Semantic Segmentation")
 
-parser.add_argument('dataset', type=str, choices=['VOCAug', 'VOC2012', 'COCO', 'Cityscapes', 'ApolloScape', 'CULane'])
-parser.add_argument('method', type=str, choices=['FCN', 'DeepLab', 'DeepLab3', 'PSPNet', 'ERFNet'])
-parser.add_argument('train_list', type=str)
-parser.add_argument('val_list', type=str)
+parser.add_argument('dataset', default='CULane',type=str, choices=['VOCAug', 'VOC2012', 'COCO', 'Cityscapes', 'ApolloScape', 'CULane'])
+parser.add_argument('method', default='ERFNet',type=str, choices=['FCN', 'DeepLab', 'DeepLab3', 'PSPNet', 'ERFNet'])
+# parser.add_argument('train_list', type=str)
+# parser.add_argument('val_list', type=str)
 
 # ========================= Model Configs ==========================
 parser.add_argument('--arch', type=str, default="resnet101")
@@ -28,13 +28,13 @@ parser.add_argument('--print-freq', '-p', default=1, type=int, metavar='N', help
 parser.add_argument('--eval-freq', '-ef', default=1, type=int, metavar='N', help='evaluation frequency (default: 5)')
 
 # ========================= Runtime Configs ==========================
-parser.add_argument('-j', '--workers', default=16, type=int, metavar='N', help='number of data loading workers (default: 16)')
-parser.add_argument('--resume', default='', type=str, metavar='PATH', help='path to latest checkpoint (default: none)')
+parser.add_argument('-j', '--workers', default=10, type=int, metavar='N', help='number of data loading workers (default: 16)')
+parser.add_argument('--resume', default='trained/_erfnet_model_best.pth.tar', type=str, metavar='PATH', help='path to latest checkpoint (default: none)')
 parser.add_argument('--weight', default='', type=str, metavar='PATH', help='path to initial weight (default: none)')
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true', help='evaluate model on validation set') # true
 parser.add_argument('--snapshot_pref', type=str, default="")
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N', help='manual epoch number (useful on restarts)')
-parser.add_argument('--gpus', nargs='+', type=int, default=None)
+parser.add_argument('--gpus', nargs='+', type=int, default=0)
 
 # =========================  Mode for Demo ===========================
-parser.add_argument('--mode', default=0, type=int, metavar='N', help='mode for demo')
+parser.add_argument('--mode', default=1, type=int, metavar='N', help='mode for demo')

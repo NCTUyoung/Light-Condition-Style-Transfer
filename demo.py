@@ -12,8 +12,8 @@ import torchvision.transforms as transforms
 from PIL import Image
 import numpy
 
-cap_name = '/home/chen/data/video/test.mp4'
-image = './data/00000.jpg'
+cap_name = './data/test.mp4'
+image = './data/10.jpg'
 
 def main():
     args = parser.parse_args()
@@ -76,7 +76,7 @@ def test(model, image_src):
     output = F.softmax(output, dim=1)
     pred = output.data.cpu().numpy()  # BxCxHxW
     pred_exist = output_exist.data.cpu().numpy()
-
+    print(pred.shape)
     maps = []
     mapsResized = []
     exists = []
@@ -94,7 +94,8 @@ def test(model, image_src):
         lines = ptl.GetLines(exists, maps)
 
     print(exists)
-    res_img = cv2.cvtColor(numpy.asarray(img), cv2.COLOR_RGB2BGR)
+    # res_img = cv2.cvtColor(numpy.asarray(img), cv2.COLOR_RGB2BGR)
+    res_img = numpy.asarray(img)
     cv2.imshow("result_pb", res_img)
 
     for l in range(LANES_COUNT):

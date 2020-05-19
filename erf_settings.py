@@ -1,7 +1,7 @@
 # Constants:
-IN_IMAGE_W = 1640 # Input and final output image will be this size
-IN_IMAGE_H = 590 # Input and final output image will be this size
-VERTICAL_CROP_SIZE = 240 # We will crop this number of fixels from the image top
+IN_IMAGE_W = 1024 # Input and final output image will be this size
+IN_IMAGE_H = 576 # Input and final output image will be this size
+VERTICAL_CROP_SIZE = 200 # We will crop this number of fixels from the image top
 TRAIN_IMG_W = 976 # We will train model with this width
 TRAIN_IMG_H = 208 # We will train model with this hights
 POINTS_COUNT = 18 # Points count in the estimated curve
